@@ -45,12 +45,6 @@ public class Equipo {
 		return misJugadores;
 	}
 	
-	public int getCantidadDeJugadores() {
-		
-		return misJugadores.size();
-		
-	}
-	
 	
 	public boolean addJugador(String nombre, String dni, Puesto p) throws ExceptionPersona {
 		
@@ -66,27 +60,17 @@ public class Equipo {
 		
 	}
 	
-	
-	
-	public List<Jugador> getJugadores(String parteDelNombre) {
-		
-		List<Jugador> jugadorNombre = new ArrayList<Jugador>();
-		
-		
-		for (Jugador jugador : misJugadores) {
-			
-			if(jugador.getApellidoYNombre().contains(parteDelNombre)) {
-				
-				 jugadorNombre.add(jugador);
-			}
-		}
-		
-		Collections.sort(jugadorNombre);
-		
-		return jugadorNombre;
+	public int getCantidadDeJugadores() {
+		//ACLARACION
+		//Este metodo es solo complemento del addJugador.
+		//El metodo que esta en gestorJugador es el que realiza toda la funcionalidad.
+		return misJugadores.size();
 		
 	}
-
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		

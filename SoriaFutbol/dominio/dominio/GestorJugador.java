@@ -40,6 +40,26 @@ public class GestorJugador {
 	}
 	
 	
+	public List<Jugador> getJugadores(List<Jugador> lista, String parteDelNombre) {
+		
+		List<Jugador> jugadorNombre = new ArrayList<Jugador>();
+		
+		
+		for (Jugador jugador : lista) {
+			
+			if(jugador.getApellidoYNombre().contains(parteDelNombre)) {
+				
+				 jugadorNombre.add(jugador);
+			}
+		}
+		
+		Collections.sort(jugadorNombre);
+		
+		return jugadorNombre;
+		
+	}
+
+	
 	
 	public int getCantidadJugadores(List<Jugador> aux) {
 				
