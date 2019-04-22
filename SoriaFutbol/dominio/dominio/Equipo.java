@@ -66,21 +66,6 @@ public class Equipo {
 		
 	}
 	
-	public List<Jugador> getJugadores(Puesto p) {
-		
-		 List<Jugador> puestoJugador = new ArrayList<Jugador>();
-		
-		for (Jugador jugador : misJugadores) {
-			if(jugador.getMiPuesto().equals(p)) {
-				
-				puestoJugador.add(jugador);
-			}
-		}
-		
-		Collections.sort(puestoJugador);
-		
-		return puestoJugador;
-	}
 	
 	
 	public List<Jugador> getJugadores(String parteDelNombre) {
