@@ -9,7 +9,6 @@ import dominio.excepciones.ExceptionPersona;
 public class Equipo {
 	
 	private List<Jugador> misJugadores = new ArrayList<Jugador>();
-	private List<Entrenador> misEntrenadores = new ArrayList<Entrenador>();
 	private final String nombre;
 	private final int MAX_CANTIDAD_JUGADORES;
 	

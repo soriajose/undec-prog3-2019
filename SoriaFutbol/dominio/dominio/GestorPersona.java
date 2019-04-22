@@ -7,7 +7,6 @@ public class GestorPersona {
 	
 	public GestorPersona() {
 		
-		
 	}
 	
 	public static GestorPersona getInstancia() {
