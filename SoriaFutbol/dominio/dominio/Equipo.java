@@ -54,7 +54,6 @@ public class Equipo {
 	
 	public boolean addJugador(String nombre, String dni, Puesto p) throws ExceptionPersona {
 		
-		
 		Jugador j = new Jugador(nombre, dni, p);
 		
 		if(!jugadorRepetido(j) && getCantidadDeJugadores() < MAX_CANTIDAD_JUGADORES) {

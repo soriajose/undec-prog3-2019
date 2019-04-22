@@ -18,12 +18,30 @@ public class GestorEntrenador {
 		
 	}
 	
+
+	public static GestorEntrenador getInstancia() {
+		
+		if(miGestor == null) {
+			
+			
+			miGestor = new GestorEntrenador();
+		}
+		
+		return miGestor;
+	}
+	
+	
 	public boolean addEntrenador(String nombre, String dni, Cargo cargo) {
 		
 		try {
 			Entrenador entrenador = new Entrenador(nombre, dni, cargo);
 			
 			if(!entrenadorRepetido(entrenador) && misEntrenadores.size() < this.MAX_ENTRENADOR) {
+				
+				if(misEntrenadores.contains(Cargo.PRIMERENTRENADOR)) {
+					
+					return false;
+				}
 				
 				misEntrenadores.add(entrenador);
 				return true;
@@ -55,17 +73,6 @@ public class GestorEntrenador {
 		return false;
 	}
 
-	public static GestorEntrenador getInstancia() {
-		
-		if(miGestor == null) {
-			
-			
-			miGestor = new GestorEntrenador();
-		}
-		
-		return miGestor;
-	}
-	
 	
 	public String getMostrarEntrenador(String nombre) {
 		

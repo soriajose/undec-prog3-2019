@@ -18,7 +18,7 @@ class JugadorEntrenadorTest {
 	@Test
 	void testJugador()  {
 		try {
-			Persona p = new Jugador("Olave","12345678",Puesto.ARQUERO);
+			Persona p = new Jugador("Cristian D.","12345678",Puesto.ARQUERO);
 			Jugador j = (Jugador) p;
 			assertEquals(Puesto.ARQUERO,j.getMiPuesto());
 			
