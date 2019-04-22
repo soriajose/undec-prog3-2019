@@ -1,0 +1,5 @@
+1) Los entrenadores podran ser como maximo 4 y solo podra haber como maximo un "Entrenador Principal"
+
+2) Devolver la lista de entrenadores ordenados de la siguiente manera:
+	- Por puesto (1ro entrenador principal, luego los secundarios, luego los ayudantes)
+	- Alfabeticamente ante empates;
