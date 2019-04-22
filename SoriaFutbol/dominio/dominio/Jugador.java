@@ -16,7 +16,6 @@ public class Jugador extends Persona implements Comparable<Jugador>{
 	
 	public Puesto getMiPuesto() {
 		
-		
 		return miPuesto;
 		
 	}
@@ -27,7 +26,5 @@ public class Jugador extends Persona implements Comparable<Jugador>{
 		return this.getApellidoYNombre().compareTo(j.getApellidoYNombre());
 	}
 	
-	
-	
-	
+
 }

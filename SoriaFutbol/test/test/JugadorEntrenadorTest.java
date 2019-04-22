@@ -16,32 +16,20 @@ import dominio.excepciones.ExceptionPersona;
 class JugadorEntrenadorTest {
 
 	@Test
-	void testJugadorEntrenador()  {
+	void testJugador()  {
 		try {
-			Persona p = new Jugador("Luis D.","12345678",Puesto.ARQUERO);
+			Persona p = new Jugador("Olave","12345678",Puesto.ARQUERO);
 			Jugador j = (Jugador) p;
 			assertEquals(Puesto.ARQUERO,j.getMiPuesto());
 			
-			p = new Jugador("Luis D.","12345678",Puesto.DEFENSOR);
+			p = new Jugador("Ariel R.","12345678",Puesto.DEFENSOR);
 			j = (Jugador) p;
 			assertEquals(Puesto.DEFENSOR,j.getMiPuesto());
 			
-			p = new Jugador("Luis D.","12345678",Puesto.DELANTERO);
+			p = new Jugador("Pereyra P.","12345678",Puesto.DELANTERO);
 			j = (Jugador) p;
 			assertEquals(Puesto.DELANTERO,j.getMiPuesto());
 			
-			
-			p = new Entrenador("Luis D.","12345678",Cargo.PRIMERENTRENADOR);
-			Entrenador e = (Entrenador) p;
-			assertEquals(Cargo.PRIMERENTRENADOR,e.getMiCargo());
-			
-			p = new Entrenador("Luis D.","12345678",Cargo.SEGUNDOENTRENADOR);
-			e = (Entrenador) p;
-			assertEquals(Cargo.SEGUNDOENTRENADOR,e.getMiCargo());
-			
-			p = new Entrenador("Luis D.","12345678",Cargo.AYUDANTE);
-			e = (Entrenador) p;
-			assertEquals(Cargo.AYUDANTE,e.getMiCargo());
 			
 		}catch(ExceptionPersona ex) {
 			fail("ExceptionPersona No Esperada.");
@@ -56,11 +44,20 @@ class JugadorEntrenadorTest {
 	
 		try {
 		
-			Entrenador e = new Entrenador("Luis D.","12345678",Cargo.PRIMERENTRENADOR);
+			Entrenador entrenador1 = new Entrenador("Luis D.","12345678",Cargo.PRIMERENTRENADOR);
 			
-			assertEquals("Su nombre completo es: Luis D.", miGestorEntrenador.getMostrarEntrenador(e.getApellidoYNombre()));
-			assertEquals("Su DNI es: 12345678", miGestorEntrenador.getMostrarDNI(e.getDni()));
-			assertEquals("Su cargo es: PRIMERENTRENADOR", miGestorEntrenador.getMostrarCargo(e.getMiCargo()));
+			assertEquals("Su nombre completo es: Luis D.", miGestorEntrenador.getMostrarEntrenador(entrenador1.getApellidoYNombre()));
+			assertEquals("Su DNI es: 12345678", miGestorEntrenador.getMostrarDNI(entrenador1.getDni()));
+			assertEquals("Su cargo es: PRIMERENTRENADOR", miGestorEntrenador.getMostrarCargo(entrenador1.getMiCargo()));
+			
+			
+			Entrenador entrenador2 = new Entrenador("Javier R.","45612378",Cargo.SEGUNDOENTRENADOR);
+			assertEquals("Su DNI es: 45612378", miGestorEntrenador.getMostrarDNI(entrenador2.getDni()));
+			assertEquals("Su cargo es: " + Cargo.SEGUNDOENTRENADOR, miGestorEntrenador.getMostrarCargo(entrenador2.getMiCargo()));
+			
+			Entrenador entrenador3 = new Entrenador("Pablo D.","87654321",Cargo.AYUDANTE);
+			assertEquals("Su DNI es: 87654321", miGestorEntrenador.getMostrarDNI(entrenador3.getDni()));
+			assertEquals("Su cargo es: " + Cargo.AYUDANTE, miGestorEntrenador.getMostrarCargo(entrenador3.getMiCargo()));
 			
 			
 		} catch (ExceptionPersona e1) {

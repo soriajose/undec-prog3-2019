@@ -8,8 +8,8 @@ import dominio.excepciones.ExceptionPersona;
 
 public class Equipo {
 	
-	private List<Jugador> misJugadores;
-	private List<Entrenador> misEntrenadores;
+	private List<Jugador> misJugadores = new ArrayList<Jugador>();
+	private List<Entrenador> misEntrenadores = new ArrayList<Entrenador>();
 	private final String nombre;
 	private final int MAX_CANTIDAD_JUGADORES;
 	
@@ -115,13 +115,7 @@ public class Equipo {
 	
 	public boolean jugadorRepetido(Jugador j) {
 		
-//		if(misJugadores.contains(j)) {
-//			return true;
-//		}
-//		
-//		return false;
-//		
-		
+
 		for (Jugador jugador : misJugadores) {
 			
 			if(jugador.getApellidoYNombre().compareToIgnoreCase(j.getApellidoYNombre()) == 0) {
