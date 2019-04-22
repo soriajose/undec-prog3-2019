@@ -57,6 +57,7 @@ class JugadorEntrenadorTest {
 		try {
 		
 			Entrenador e = new Entrenador("Luis D.","12345678",Cargo.PRIMERENTRENADOR);
+			
 			assertEquals("Su nombre completo es: Luis D.", miGestorEntrenador.getMostrarEntrenador(e.getApellidoYNombre()));
 			assertEquals("Su DNI es: 12345678", miGestorEntrenador.getMostrarDNI(e.getDni()));
 			assertEquals("Su cargo es: PRIMERENTRENADOR", miGestorEntrenador.getMostrarCargo(e.getMiCargo()));

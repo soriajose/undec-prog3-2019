@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import dominio.GestorPersona;
 import dominio.Persona;
 import dominio.excepciones.ExceptionPersona;
 import dominio.excepciones.ExceptionPersonaDniNulo;
@@ -36,13 +37,18 @@ class PersonaTest {
 	
 	@Test
 	void testPersonaFormatoDni() {
+		
+		GestorPersona miGestorPersona = GestorPersona.getInstancia();
+		
 		try {
 			Persona p1 = new Persona("Luis J.","12456789");
 			Persona p2 = new Persona("Luis J.","123456");
 			Persona p3 = new Persona("Luis J.","123456789");
-			assertEquals("12.456.789",p1.getDniConFormato());
-			assertEquals("123.456",p2.getDniConFormato());
-			assertEquals("123.456.789",p3.getDniConFormato());
+			
+			assertEquals("12.456.789",miGestorPersona.getDniConFormato(p1.getDni()));
+			assertEquals("123.456",miGestorPersona.getDniConFormato(p2.getDni()));
+			assertEquals("123.456.789",miGestorPersona.getDniConFormato(p3.getDni()));
+			
 		}catch(ExceptionPersona ex) {
 			fail("Se genero ExceptionPersona.");
 		}catch(Exception ex) {
