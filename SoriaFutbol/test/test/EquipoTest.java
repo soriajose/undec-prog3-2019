@@ -92,7 +92,8 @@ class EquipoTest {
 	@Test
 	void testEquipo_PuestoDeJugadores() throws ExceptionPersona{
 		
-
+		GestorJugador miGestorJugador = GestorJugador.getInstancia();
+		
 		Equipo equipo = new Equipo("Yupanqui Sur");
 		
 		
@@ -109,38 +110,30 @@ class EquipoTest {
 		equipo.addJugador(j4.getApellidoYNombre(), j4.getDni(), j4.getMiPuesto());
 		equipo.addJugador(j5.getApellidoYNombre(), j5.getDni(), j5.getMiPuesto());
 		equipo.addJugador(j6.getApellidoYNombre(), j6.getDni(), j6.getMiPuesto());
-		equipo.addJugador(j7.getApellidoYNombre(), j7.getDni(), j7.getMiPuesto());
 		
 		
-		List<Jugador> aux = equipo.getMisJugadores();
+		List<Jugador> lista = equipo.getMisJugadores();
+		List<Jugador> arquero = miGestorJugador.getJugadores(lista, Puesto.ARQUERO);
+		
+		assertEquals(2,arquero.size());
+		assertEquals(j4,arquero.get(0));
+		assertEquals(j1,arquero.get(1));
+		
+		List<Jugador> defensor = miGestorJugador.getJugadores(lista, Puesto.DEFENSOR);
+	
+		assertEquals(3,defensor.size());
+		assertEquals(j5,defensor.get(0));
+		assertEquals(j6,defensor.get(1));
+		assertEquals(j2,defensor.get(2));
 		
 		
+		List<Jugador> delantero = miGestorJugador.getJugadores(lista, Puesto.DELANTERO);
 		
-/*		
-		
-		e.addJugador(j1.getApellidoYNombre(), j1.getDni(), j1.getMiPuesto());		
-		e.addJugador(j2.getApellidoYNombre(), j2.getDni(), j2.getMiPuesto());
-		e.addJugador(j3.getApellidoYNombre(), j3.getDni(), j3.getMiPuesto());
-		e.addJugador(j4.getApellidoYNombre(), j4.getDni(), j4.getMiPuesto());
-		
-		List<Jugador> aux = e.getJugadores(Puesto.ARQUERO);
-		
-		assertEquals(2,aux.size());
-		assertEquals(j4,aux.get(0));
-		assertEquals(j1,aux.get(1));
-		
-		e.addJugador(j5.getApellidoYNombre(), j5.getDni(), j5.getMiPuesto());
-		e.addJugador(j6.getApellidoYNombre(), j6.getDni(), j6.getMiPuesto());
-		
-		aux = e.getJugadores(Puesto.DEFENSOR);
-		
-		assertEquals(3,aux.size());
-		assertEquals(j5,aux.get(0));
-		assertEquals(j6,aux.get(1));
-		assertEquals(j2,aux.get(2));
+		assertEquals(1, delantero.size());
+		assertEquals(j3, delantero.get(0));
 		
 	}
-	
+/*				
 	@Test
 	void testEquipo_NombreDeJugadores() throws ExceptionPersona{
 		Jugador j1 = new Jugador("Luis","12456789",Puesto.ARQUERO);
