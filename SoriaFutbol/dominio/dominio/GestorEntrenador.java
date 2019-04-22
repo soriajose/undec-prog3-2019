@@ -23,7 +23,12 @@ public class GestorEntrenador {
 		try {
 			Entrenador entrenador = new Entrenador(nombre, dni, cargo);
 			
-			misEntrenadores.add(entrenador);
+			if(!entrenadorRepetido(entrenador) && misEntrenadores.size() < this.MAX_ENTRENADOR) {
+				
+				misEntrenadores.add(entrenador);
+				return true;
+				
+			}
 			
 		} catch (ExceptionPersona e) {
 			
@@ -34,6 +39,22 @@ public class GestorEntrenador {
 		return true;
 	}
 	
+	private boolean entrenadorRepetido(Entrenador entrenador) {
+		
+		for(Entrenador i: misEntrenadores) {
+			
+			if(i.getApellidoYNombre().equals(entrenador.getApellidoYNombre())) {
+				
+				return true;
+			}
+			
+		}
+		
+		
+		
+		return false;
+	}
+
 	public static GestorEntrenador getInstancia() {
 		
 		if(miGestor == null) {
