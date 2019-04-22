@@ -32,21 +32,35 @@ class EquipoTest {
 		assertEquals("123456", e.getNombre());
 	}
 */	
-/*
+
 	@Test
 	void testEquipo_CantidadesDeJugadores() throws ExceptionPersona{
 
 		GestorJugador miGestorJugador = GestorJugador.getInstancia();
 		
-		Equipo equipo = new Equipo("Atletico");
+		Equipo equipo = new Equipo("Yupanqui Sur");
+
 		Jugador j1 = new Jugador("Luis","123456789",Puesto.ARQUERO);
 		Jugador j2 = new Jugador("Carlos","987654321",Puesto.DEFENSOR);
+		Jugador j3 = new Jugador("Alberto","65434321",Puesto.DELANTERO);
+		Jugador j4 = new Jugador("Ernesto","45346789",Puesto.ARQUERO);
+		Jugador j5 = new Jugador("Abel","987654321",Puesto.DEFENSOR);
+		Jugador j6 = new Jugador("Anibal","987654321",Puesto.DEFENSOR);
+		Jugador j7 = new Jugador("Jose","987654321",Puesto.DEFENSOR);
+		
 		equipo.addJugador(j1.getApellidoYNombre(), j1.getDni(), j1.getMiPuesto());
+		equipo.addJugador(j2.getApellidoYNombre(), j2.getDni(), j2.getMiPuesto());
+		equipo.addJugador(j3.getApellidoYNombre(), j3.getDni(), j3.getMiPuesto());
+		equipo.addJugador(j4.getApellidoYNombre(), j4.getDni(), j4.getMiPuesto());
+		equipo.addJugador(j5.getApellidoYNombre(), j5.getDni(), j5.getMiPuesto());
+		equipo.addJugador(j6.getApellidoYNombre(), j6.getDni(), j6.getMiPuesto());
+		equipo.addJugador(j7.getApellidoYNombre(), j7.getDni(), j7.getMiPuesto());
+		
 		
 		List<Jugador> aux = equipo.getMisJugadores();
 		
-		assertEquals(1, miGestorJugador.getCantidadJugadores(aux));
-*/		
+		assertEquals(6, miGestorJugador.getCantidadJugadores(aux));
+	
 		
 /*			
  
@@ -58,7 +72,7 @@ class EquipoTest {
 		Jugador j6 = new Jugador("Anibal","987654321",Puesto.DEFENSOR);
 		Jugador j7 = new Jugador("Jose","987654321",Puesto.DEFENSOR);
 		
-		Equipo e = new Equipo("Yupanqui Sur");
+	
 		assertEquals(0,e.getCantidadDeJugadores());
 		
 		e.addJugador(j1.getApellidoYNombre(), j1.getDni(), j1.getMiPuesto());		

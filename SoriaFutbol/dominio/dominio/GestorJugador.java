@@ -23,14 +23,14 @@ public class GestorJugador {
 		return miGestorJugador;
 	}
 
-/*
+
 	public int getCantidadJugadores(List<Jugador> aux) {
 		
 		
 		return aux.size();
 	}
 	
-*/	
+
 	
 	
 }
