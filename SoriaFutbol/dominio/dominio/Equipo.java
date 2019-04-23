@@ -69,11 +69,8 @@ public class Equipo {
 	}
 	
 	
-	
-	
 	@Override
 	public String toString() {
-		
 		
 		return "Resumen Equipo: " + cantidadArquero() + " Arqueros" + " - " + cantidadDefensor() + " Defensores" + " - " + cantidadDelantero() + " Delanteros";
 		
@@ -81,7 +78,9 @@ public class Equipo {
 	
 	
 	public boolean jugadorRepetido(Jugador j) {
-		
+		//ACLARACION
+		//Este metodo es complemento de addJugador.
+		//Lo unico que hace es verificar si hay jugadores repetidos para no agregarlos.
 
 		for (Jugador jugador : misJugadores) {
 			

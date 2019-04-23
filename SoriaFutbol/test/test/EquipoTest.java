@@ -10,10 +10,11 @@ import dominio.Equipo;
 import dominio.GestorJugador;
 import dominio.Jugador;
 import dominio.Puesto;
+import dominio.ResumenEquipo;
 import dominio.excepciones.ExceptionPersona;
 
 class EquipoTest {
-/*
+
 	@Test
 	void testEquipo_Nombre() {
 		Equipo e = new Equipo("Yupanqui Sur");
@@ -132,7 +133,7 @@ class EquipoTest {
 		
 	}
 
-*/				
+			
 	@Test
 	void testEquipo_NombreDeJugadores() throws ExceptionPersona{
 		
@@ -169,10 +170,13 @@ class EquipoTest {
 		assertEquals(j6,lista.get(0));
 		
 	}
-/*	
+	
 	@Test
 	void testEquipo_Resumen() throws ExceptionPersona{
-		Equipo e = new Equipo("Yupanqui Sur");
+		
+		ResumenEquipo resumenEquipo = ResumenEquipo.getInstancia();
+		
+		Equipo equipo = new Equipo("Yupanqui Sur");
 		
 		Jugador j1 = new Jugador("Luis","12456789",Puesto.ARQUERO);
 		Jugador j2 = new Jugador("Carlos","987654321",Puesto.DEFENSOR);
@@ -181,21 +185,24 @@ class EquipoTest {
 		Jugador j5 = new Jugador("Abel","987654321",Puesto.DEFENSOR);
 		Jugador j6 = new Jugador("Anibal","987654321",Puesto.DEFENSOR);
 		
-		assertEquals("Resumen Equipo: 0 Arqueros - 0 Defensores - 0 Delanteros",e.toString());
+		assertEquals("Resumen Equipo: 0 Arqueros - 0 Defensores - 0 Delanteros",equipo.toString());
 		
-		e.addJugador(j1.getApellidoYNombre(), j1.getDni(), j1.getMiPuesto());		
-		e.addJugador(j2.getApellidoYNombre(), j2.getDni(), j2.getMiPuesto());
-		e.addJugador(j3.getApellidoYNombre(), j3.getDni(), j3.getMiPuesto());
+		equipo.addJugador(j1.getApellidoYNombre(), j1.getDni(), j1.getMiPuesto());		
+		equipo.addJugador(j2.getApellidoYNombre(), j2.getDni(), j2.getMiPuesto());
+		equipo.addJugador(j3.getApellidoYNombre(), j3.getDni(), j3.getMiPuesto());
 		
-		assertEquals("Resumen Equipo: 1 Arqueros - 1 Defensores - 1 Delanteros",e.toString());
 		
-		e.addJugador(j4.getApellidoYNombre(), j4.getDni(), j4.getMiPuesto());
-		e.addJugador(j5.getApellidoYNombre(), j5.getDni(), j5.getMiPuesto());
-		e.addJugador(j6.getApellidoYNombre(), j6.getDni(), j6.getMiPuesto());
+	
+		assertEquals("Resumen Equipo: 1 Arqueros - 1 Defensores - 1 Delanteros",equipo.toString());
+		
+		equipo.addJugador(j4.getApellidoYNombre(), j4.getDni(), j4.getMiPuesto());
+		equipo.addJugador(j5.getApellidoYNombre(), j5.getDni(), j5.getMiPuesto());
+		equipo.addJugador(j6.getApellidoYNombre(), j6.getDni(), j6.getMiPuesto());
 				
-		assertEquals("Resumen Equipo: 2 Arqueros - 3 Defensores - 1 Delanteros",e.toString());
+		assertEquals("Resumen Equipo: 2 Arqueros - 3 Defensores - 1 Delanteros",equipo.toString());
 	}
-*/	
+	
+	
 }
 
 
