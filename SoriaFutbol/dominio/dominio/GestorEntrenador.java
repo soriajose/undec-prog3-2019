@@ -9,13 +9,13 @@ import dominio.excepciones.ExceptionPersona;
 
 public class GestorEntrenador {
 
-	private static GestorEntrenador miGestor;
+	private static GestorEntrenador miGestor = null;
 	
-	private List<Entrenador> misEntrenadores = new ArrayList<Entrenador>();
+	private List<Entrenador> misEntrenadores ;
 	private int MAX_ENTRENADOR = 4;
 	
 	public GestorEntrenador() {
-		
+		misEntrenadores = new ArrayList<Entrenador>();
 	}
 	
 
@@ -38,7 +38,7 @@ public class GestorEntrenador {
 			
 			if(!entrenadorRepetido(entrenador) && misEntrenadores.size() < this.MAX_ENTRENADOR) {
 				
-				if(misEntrenadores.contains(Cargo.PRIMERENTRENADOR)) {
+				if(contieneCargo(Cargo.PRIMERENTRENADOR)) {
 					
 					return false;
 				}
@@ -55,6 +55,17 @@ public class GestorEntrenador {
 		
 		
 		return true;
+	}
+	
+	
+	private boolean contieneCargo(Cargo c) {
+		
+		for (Entrenador entrenador : misEntrenadores) {
+			if(entrenador.getMiCargo().equals(c))
+				return true;
+		}
+		
+		return false;
 	}
 	
 	private boolean entrenadorRepetido(Entrenador entrenador) {
@@ -90,6 +101,35 @@ public class GestorEntrenador {
 	}
 	
 	
+	public Entrenador devolverEntrenadorPorNombre(String nombre) {
+		for (Entrenador entrenador : misEntrenadores) {
+			if(entrenador.getApellidoYNombre().equals(nombre))
+				return entrenador;
+		}
+		
+		return null;
+	}
+	
+	
+	public Cargo devolverCargoPorNombre(String nombre) {
+		for (Entrenador entrenador : misEntrenadores) {
+			if(entrenador.getApellidoYNombre().equals(nombre))
+				return entrenador.getMiCargo();
+		}
+		
+		return null;
+	}
+	
+	
+	public List<Entrenador> devolverEntrenadoresPorCargo(Cargo carg) {
+		List<Entrenador> salida = new ArrayList<Entrenador>();
+		for (Entrenador entrenador : misEntrenadores) {
+			if(entrenador.getMiCargo().equals(carg))
+				salida.add(entrenador);
+		}
+		
+		return salida;
+	}
 	
 	
 }
