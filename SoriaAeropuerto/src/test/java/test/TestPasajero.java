@@ -20,7 +20,6 @@ class TestPasajero {
 			
 		}
 		
-		
 		try {
 			
 			Pasajero pasajero1 = new Pasajero("", "201234561", "Soria", "Jose", "15123456");
@@ -155,7 +154,7 @@ class TestPasajero {
 		}
 		
 		
-		//Test para el formato del documento. 
+		//Test para el formato del CUIL. 
 		try {
 		
 			pasajero1 = new Pasajero(1001, "10123456781", "Soria", "Jose", "15123456");
@@ -167,7 +166,18 @@ class TestPasajero {
 			
 		}
 		
+		try {
+			
+			pasajero1 = new Pasajero(1002, "30876543212", "Fajardo", "Hugo", "15654321");
+			assertEquals("El numero de CUIL es: 30-8765421-2", pasajero1.getCUILFormato());
+			
+		}catch(ExceptionCantidadIncorrecta exception) {
+			
+			fail("Esta linea no deberia correrse");
+			
+		}
+		
 	}
-	
+		
 
 }
