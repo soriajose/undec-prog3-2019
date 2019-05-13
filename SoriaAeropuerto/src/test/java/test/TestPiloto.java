@@ -13,11 +13,11 @@ class TestPiloto {
 		
 		//(idPiloto, apellido, nombre, documento, fechaNacimiento)
 		
-		Piloto piloto;
+		Piloto piloto = null;
 		
 		try {
 			
-			piloto = new Piloto(0001, "Soria", "Jose", "40300672", LocalDate.of(2019, 3, 2));
+			piloto = new Piloto(1231, "Soria", "Jose", "40300672", LocalDate.of(2019, 3, 2));
 			
 			
 		}catch(Exception exception) {
@@ -51,7 +51,7 @@ class TestPiloto {
 		
 		try {
 			
-			piloto = new Piloto(0001, null, "Jose", "40300672", LocalDate.of(2019, 3, 2));
+			piloto = new Piloto(1231, null, "Jose", "40300672", LocalDate.of(2019, 3, 2));
 			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionNulo exception) {
@@ -63,7 +63,7 @@ class TestPiloto {
 		
 		try {
 			
-			piloto = new Piloto(0001, "", "Jose", "40300672", LocalDate.of(2019, 3, 2));
+			piloto = new Piloto(1231, "", "Jose", "40300672", LocalDate.of(2019, 3, 2));
 			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionVacio exception) {
@@ -74,7 +74,7 @@ class TestPiloto {
 		
 		try {
 			
-			piloto = new Piloto(0001, "Soria", "", "40300672", LocalDate.of(2019, 3, 2));
+			piloto = new Piloto(1231, "Soria", "", "40300672", LocalDate.of(2019, 3, 2));
 			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionVacio exception) {
@@ -86,7 +86,7 @@ class TestPiloto {
 		
 		try {
 			
-			piloto = new Piloto(0001, "Soria", null, "40300672", LocalDate.of(2019, 3, 2));
+			piloto = new Piloto(1231, "Soria", null, "40300672", LocalDate.of(2019, 3, 2));
 			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionNulo exception) {
@@ -98,7 +98,7 @@ class TestPiloto {
 		
 		try {
 			
-			piloto = new Piloto(0001, "Soria", "Jose", "", LocalDate.of(2019, 3, 2));
+			piloto = new Piloto(1231, "Soria", "Jose", "", LocalDate.of(2019, 3, 2));
 			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionVacio exception) {
@@ -110,7 +110,7 @@ class TestPiloto {
 		
 		try {
 			
-			piloto = new Piloto(0001, "Soria", "Jose", null , LocalDate.of(2019, 3, 2));
+			piloto = new Piloto(1231, "Soria", "Jose", null , LocalDate.of(2019, 3, 2));
 			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionNulo exception) {
@@ -122,7 +122,7 @@ class TestPiloto {
 		
 		try {
 			
-			piloto = new Piloto(0001, "Soria", "Jose", "40300672", "");
+			piloto = new Piloto(1231, "Soria", "Jose", "40300672", "");
 			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionVacio exception) {
@@ -134,7 +134,7 @@ class TestPiloto {
 		
 		try {
 			
-			piloto = new Piloto(0001, "Soria", "Jose", "40300672", null);
+			piloto = new Piloto(1231, "Soria", "Jose", "40300672", null);
 			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionVacio exception) {

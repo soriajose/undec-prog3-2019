@@ -72,5 +72,55 @@ class TestAerolineas {
 	}
 
 	
+	@Test
+	void test_Resumen_Aerolineas() {
+		
+		Aerolinea aerolinea = null;
+		
+		try {
+			
+			aerolinea = new Aerolinea(1234, "Fly Emirates");
+			
+			assertEquals("ID Aerolinea: 1234 - Nombre: Fly Emirates", aerolinea.getResumenAerolinea());
+			
+			
+		}catch(Exception exception) {
+			
+			fail("Esta lina no deberia correrse");
+		}
+		
+		
+		try {
+			
+			aerolinea = new Aerolinea(1235, "Qatar Airways");
+			
+			assertEquals("ID Aerolinea: 1235 - Nombre: Qatar Airways", aerolinea.getResumenAerolinea());
+			
+			
+		}catch(Exception exception) {
+			
+			fail("Esta lina no deberia correrse");
+		}
+		
+		try {
+			
+			aerolinea = new Aerolinea(1236, "Eva Air");
+			
+			assertEquals("ID Aerolinea: 1236 - Nombre: Eva Air", aerolinea.getResumenAerolinea());
+			
+			
+		}catch(Exception exception) {
+			
+			fail("Esta lina no deberia correrse");
+		}
+		
+		
+		
+	}
+
+	
+	
+	
+	
 	
 }

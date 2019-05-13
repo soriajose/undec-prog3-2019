@@ -18,16 +18,16 @@ class TestAvion {
 		Asiento asiento5 = new Asiento(5, "B1");
 		Asiento asiento6 = new Asiento(6, "B2");		
 		
-		Avion avion = new Avion(10001, "BOEING 737-800", "N785AN");
+		Avion avion = new Avion(1001, "BOEING 737-800", "N785AN");
 		
 		assert(true,avion.agregarAsiento(asiento1));
-		assertEquals("AVION: BOEING 737-800 - ID: 10001 - MATRICULA: N785AN (1 asiento)", avion.getResumenAvion());
+		assertEquals("AVION: BOEING 737-800 - ID: 1001 - MATRICULA: N785AN (1 asiento)", avion.getResumenAvion());
 		
 		assert(true,avion.agregarAsiento(asiento2));
 		assert(true,avion.agregarAsiento(asiento3));
 		assert(true,avion.agregarAsiento(asiento4));
 		
-		assertEquals("AVION: BOEING 737-800 - ID: 10001 - MATRICULA: N785AN (4 asientos)", avion.getResumenAvion());
+		assertEquals("AVION: BOEING 737-800 - ID: 1001 - MATRICULA: N785AN (4 asientos)", avion.getResumenAvion());
 		
 		assert(true,avion.agregarAsiento(asiento5));
 		assert(true,avion.agregarAsiento(asiento6));
@@ -35,7 +35,9 @@ class TestAvion {
 		assert(false,avion.agregarAsiento(asiento3));
 		assert(false,avion.agregarAsiento(asiento4));
 		
-		assertEquals("AVION: BOEING 737-800 - ID: 10001 - MATRICULA: N785AN (6 asientos)", avion.getResumenAvion());
+		assertEquals("AVION: BOEING 737-800 - ID: 1001 - MATRICULA: N785AN (6 asientos)", avion.getResumenAvion());
+		
+		
 		
 		
 	}

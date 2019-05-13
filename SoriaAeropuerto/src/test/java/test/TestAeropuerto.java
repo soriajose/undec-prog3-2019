@@ -10,10 +10,10 @@ class TestAeropuerto {
 	void test_Aeropuerto() {
 		
 		
-		Aeropuerto aeropuerto = new Aeropuerto(0001, "Jorge Newbery", new Ciudad(001, "Buenos Aires", "1706"), "SABE");
+		Aeropuerto aeropuerto = new Aeropuerto(2501, "Jorge Newbery", new Ciudad(2501, "Buenos Aires", "1706"), "SABE");
 		
 		assertEquals("[0001 - SABE] JORGE NEWBERY - BUENOS AIRES (CP: 1706)", aeropuerto.getResumenAeropuerto());
-	
+		
 	}
 
 }
