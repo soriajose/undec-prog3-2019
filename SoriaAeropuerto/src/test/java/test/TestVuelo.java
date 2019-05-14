@@ -19,7 +19,6 @@ class TestVuelo {
 		Aerolinea aerolinea1 = new Aerolinea(1234, "Fly Emirates");
 		Avion avion1 = new Avion(1001, "BOEING 737-800", "N785AN");
 		
-
 		Vuelo vuelo1 = new Vuelo("VBC47", aeropuerto1, LocalTime.of(12, 00), aeropuerto2, LocalTime.of(15, 30), aerolinea1, pilotos = new ArrayList<Piloto>(), avion1, pasajeros = new ArrayList<Pasajero>());
 		assertEquals("Codigo de vuelo: VBC47 - Salida: Aeropuerto Internacional Jorge Newbery - Hora de Salida: 12:00 - Hora de Arribo: 15:30 - Aerolinea: Fly Emirates - Pilotos: 2 - Pasajeros: 10", vuelo1.getResumenVuelo());
 		
