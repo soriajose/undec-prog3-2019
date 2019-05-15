@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import excepciones.ExceptionNulo;
+import excepciones.ExceptionVacio;
+
 class TestCiudad {
 
 	@Test
@@ -15,7 +18,6 @@ class TestCiudad {
 			
 			//(IdCIudad, nombre, codigoPostal)
 			ciudad1 = new Ciudad(101, "Chilecito", "5360");
-			fail("Esta linea no deberia correrse");
 			
 		}catch(Exception exception) {
 			
