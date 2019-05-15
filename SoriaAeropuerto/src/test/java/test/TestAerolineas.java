@@ -4,18 +4,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import dominio.Aerolinea;
+import excepciones.ExceptionNulo;
+import excepciones.ExceptionVacio;
+
 class TestAerolineas {
 
 	@Test
-	void test_Atributos_Aerolineas() {
+	void test_Atributos_Aerolineas() throws ExceptionVacio, ExceptionNulo {
 		
 		Aerolinea aerolinea1 = null;
 		
 		try {
 			
-			//(idAerolinea, nombre)
 			aerolinea1 = new Aerolinea(1234, "Fly Emirates");
-			fail("Esta linea no deberia correrse");
 			
 		}catch(Exception exception) {
 			
@@ -27,10 +29,8 @@ class TestAerolineas {
 		try {
 			
 			aerolinea1 = new Aerolinea(null, "Fly Emirates");
-			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionNulo exception) {
-			
 			
 			assertEquals("El ID de la Aerolinea no puede ser nulo", exception.getMessage());
 		}
@@ -38,19 +38,7 @@ class TestAerolineas {
 		
 		try {
 			
-			aerolinea1 = new Aerolinea("", "Fly Emirates");
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-			
-			assertEquals("El ID de la Aerolinea no puede ser vacio", exception.getMessage());
-		}
-		
-
-		try {
-			
 			aerolinea1 = new Aerolinea(1234, "");
-			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionVacio exception) {
 			
@@ -61,7 +49,6 @@ class TestAerolineas {
 		try {
 			
 			aerolinea1 = new Aerolinea(1234, null);
-			fail("Esta linea no deberia correrse");
 			
 		}catch(ExceptionNulo exception) {
 			

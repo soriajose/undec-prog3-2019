@@ -1,4 +1,7 @@
-package excepciones;
+package dominio;
+
+import excepciones.ExceptionNulo;
+import excepciones.ExceptionVacio;
 
 public class Ciudad {
 	
@@ -29,13 +32,13 @@ public class Ciudad {
 		
 		if(nombre.equals("")) {
 			
-			throw new ExceptionNulo("El nombre de la ciudad no puede ser vacio");
+			throw new ExceptionVacio("El nombre de la ciudad no puede ser vacio");
 			
 		}
 		
 		if(codigoPostal.equals("")) {
 			
-			throw new ExceptionNulo("El codigo postal de la ciudad no puede ser vacio");
+			throw new ExceptionVacio("El codigo postal de la ciudad no puede ser vacio");
 			
 		}
 		

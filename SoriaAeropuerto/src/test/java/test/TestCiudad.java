@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import excepciones.Ciudad;
+import dominio.Ciudad;
 import excepciones.ExceptionNulo;
 import excepciones.ExceptionVacio;
 
