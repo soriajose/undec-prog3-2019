@@ -1,17 +1,20 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
+import dominio.Piloto;
+import excepciones.ExceptionNulo;
+import excepciones.ExceptionVacio;
+
 class TestPiloto {
 
 	@Test
-	void test_Atributos_Piloto() {
-		
-		//(idPiloto, apellido, nombre, documento, fechaNacimiento)
+	void test_Atributos_Piloto() throws ExceptionVacio, ExceptionNulo {
 		
 		Piloto piloto = null;
 		
@@ -25,18 +28,6 @@ class TestPiloto {
 			assertEquals("El ID del piloto no puede ser nulo", exception.getMessage());
 			
 		}
-		
-		try {
-			
-			piloto = new Piloto("", "Soria", "Jose", "40300672", LocalDate.of(1996, 8, 16));
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-		
-			assertEquals("El ID del piloto no puede ser vacio", exception.getMessage());
-			
-		}
-		
 		
 		try {
 			
@@ -107,31 +98,6 @@ class TestPiloto {
 			assertEquals("El documento del piloto no puede ser nulo", exception.getMessage());
 			
 		}
-		
-		
-		try {
-			
-			piloto = new Piloto(1231, "Soria", "Jose", "40300672", "");
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-		
-			assertEquals("La fecha no debe ser vacia", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			piloto = new Piloto(1231, "Soria", "Jose", "40300672", null);
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-		
-			assertEquals("La fecha no debe ser nulo", exception.getMessage());
-			
-		}
-		
 		
 		
 	}
