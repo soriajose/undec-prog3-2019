@@ -4,13 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import excepciones.Ciudad;
 import excepciones.ExceptionNulo;
 import excepciones.ExceptionVacio;
 
 class TestCiudad {
 
 	@Test
-	void test_Atributos_Ciudad() {
+	void test_Atributos_Ciudad() throws ExceptionVacio, ExceptionNulo {
 		
 		Ciudad ciudad1 = null;
 		
@@ -33,19 +34,7 @@ class TestCiudad {
 			
 		}catch(ExceptionNulo exception) {
 			
-			assertEquals("El ID de la ciudad no puede ser nulo", ciudad1.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			//(IdCIudad, nombre, codigoPostal)
-			ciudad1 = new Ciudad("", "Chilecito", "5360");
-			
-		}catch(ExceptionVacio exception) {
-			
-			assertEquals("El ID de la ciudad no puede ser vacio", ciudad1.getMessage());
+			assertEquals("El ID de la ciudad no puede ser nulo", exception.getMessage());
 			
 		}
 		
@@ -57,8 +46,8 @@ class TestCiudad {
 			
 		}catch(ExceptionNulo exception) {
 			
-			assertEquals("El nombre de la ciudad no puede ser nulo", ciudad1.getMessage());
-			
+			assertEquals("El nombre de la ciudad no puede ser nulo", exception.getMessage());
+		
 		}
 		
 		
@@ -69,7 +58,7 @@ class TestCiudad {
 			
 		}catch(ExceptionVacio exception) {
 			
-			assertEquals("El nombre de la ciudad no puede ser vacio", ciudad1.getMessage());
+			assertEquals("El nombre de la ciudad no puede ser vacio", exception.getMessage());
 			
 		}
 		
@@ -81,7 +70,7 @@ class TestCiudad {
 			
 		}catch(ExceptionNulo exception) {
 			
-			assertEquals("El codigo postal no puede ser nulo", ciudad1.getMessage());
+			assertEquals("El codigo postal no puede ser nulo", exception.getMessage());
 			
 		}
 		
@@ -93,7 +82,7 @@ class TestCiudad {
 			
 		}catch(ExceptionVacio exception) {
 			
-			assertEquals("El codigo postal no puede ser vacio", ciudad1.getMessage());
+			assertEquals("El codigo postal no puede ser vacio", exception.getMessage());
 			
 		}
 		
