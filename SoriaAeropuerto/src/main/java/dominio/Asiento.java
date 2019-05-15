@@ -19,6 +19,26 @@ public class Asiento {
 
 		return "ID de asiento: " + this.iDAsiento + " - Numero Asiento: " + this.numeroAsiento;
 	}
+
+
+	public Integer getiDAsiento() {
+		return iDAsiento;
+	}
+
+
+	public void setiDAsiento(Integer iDAsiento) {
+		this.iDAsiento = iDAsiento;
+	}
+
+
+	public String getNumeroAsiento() {
+		return numeroAsiento;
+	}
+
+
+	public void setNumeroAsiento(String numeroAsiento) {
+		this.numeroAsiento = numeroAsiento;
+	}
 	
 	
 }

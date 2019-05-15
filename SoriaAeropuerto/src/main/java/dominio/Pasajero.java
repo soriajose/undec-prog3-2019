@@ -89,6 +89,26 @@ public class Pasajero {
 		return this.CUIL.substring(0, 2) + "-" + this.CUIL.substring(2, 4) + "." + this.CUIL.substring(4, 7) + "." + this.CUIL.substring(7, 10) + "-" + this.CUIL.substring(10, 11);
 	
 	}
+
+
+	public String getApellido() {
+		return apellido;
+	}
+
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 	
 	
 	

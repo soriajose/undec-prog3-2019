@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import dominio.Asiento;
+import dominio.Asignacion;
+import dominio.Pasajero;
+
 class TestAsignacion {
 
 	@Test
@@ -16,7 +20,7 @@ class TestAsignacion {
 			Asignacion asignacion1 = new Asignacion(pasajero1, asiento1, "A321001SJ");
 			assertEquals("Pasajero: Soria Jose - Asiento: (10 - A32) - Codigo: A321001SJ", asignacion1.getResumenAsignacion());
 			
-		}catch(ExceptionCantidadIncorrecta exception) {
+		}catch(Exception exception) {
 			
 			fail("Esta linea no deberia correrse");
 			
@@ -30,7 +34,7 @@ class TestAsignacion {
 			assertEquals("Pasajero: Fajardo Hugo - Asiento: (11 - A33) - Codigo: A331002FH", asignacion2.getResumenAsignacion());
 			
 			
-		}catch(ExceptionCantidadIncorrecta exception) {
+		}catch(Exception exception) {
 			
 			fail("Esta linea no deberia correrse");
 			
@@ -44,7 +48,7 @@ class TestAsignacion {
 			assertEquals("Pasajero: Ruitti Javier - Asiento: (12 - A34) - Codigo: A341003RJ", asignacion3.getResumenAsignacion());
 			
 			
-		}catch(ExceptionCantidadIncorrecta exception) {
+		}catch(Exception exception) {
 			
 			fail("Esta linea no deberia correrse");
 			
