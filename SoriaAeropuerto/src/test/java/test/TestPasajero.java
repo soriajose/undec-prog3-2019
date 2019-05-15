@@ -4,10 +4,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;import org.junit.rules.ExpectedException;
 
+import dominio.Pasajero;
+import excepciones.ExceptionCantidadIncorrecta;
+import excepciones.ExceptionNulo;
+import excepciones.ExceptionVacio;
+
 class TestPasajero {
 
 	@Test
-	void test_ParametrosPasajero() {
+	void test_ParametrosPasajero() throws ExceptionNulo, ExceptionVacio, ExceptionCantidadIncorrecta {
+		
+		try {
+			
+			Pasajero pasajero1 = new Pasajero(1001, "201234561", "Soria", "Jose", "15123456");
+			
+			
+		}catch(Exception exception) {
+			
+			fail("Esta linea no deberia correrse");
+		}
+		
+		
 		
 		try {
 			
@@ -16,18 +33,7 @@ class TestPasajero {
 			
 		}catch(ExceptionNulo exception) {
 			
-			assertEquals("El ID no puede ser nulo", exception.getMenssage());
-			
-		}
-		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero("", "201234561", "Soria", "Jose", "15123456");
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-			
-			assertEquals("El ID no puede ser vacio", exception.getMenssage());
+			assertEquals("El ID no puede ser nulo", exception.getMessage());
 			
 		}
 		
@@ -39,7 +45,7 @@ class TestPasajero {
 			
 		}catch(ExceptionNulo exception) {
 			
-			assertEquals("El CUIL no puede ser nulo", exception.getMenssage());
+			assertEquals("El CUIL no puede ser nulo", exception.getMessage());
 			
 		}
 		
@@ -50,7 +56,7 @@ class TestPasajero {
 			
 		}catch(ExceptionVacio exception) {
 			
-			assertEquals("El CUIL no puede ser vacio", exception.getMenssage());
+			assertEquals("El CUIL no puede ser vacio", exception.getMessage());
 			
 		}
 		
@@ -62,7 +68,7 @@ class TestPasajero {
 			
 		}catch(ExceptionNulo exception) {
 			
-			assertEquals("El apellido no puede ser nulo", exception.getMenssage());
+			assertEquals("El apellido no puede ser nulo", exception.getMessage());
 			
 		}
 		
@@ -73,7 +79,7 @@ class TestPasajero {
 			
 		}catch(ExceptionVacio exception) {
 			
-			assertEquals("El apellido no puede ser vacio", exception.getMenssage());
+			assertEquals("El apellido no puede ser vacio", exception.getMessage());
 			
 		}
 		
@@ -84,7 +90,7 @@ class TestPasajero {
 			
 		}catch(ExceptionNulo exception) {
 			
-			assertEquals("El nombre no puede ser nulo", exception.getMenssage());
+			assertEquals("El nombre no puede ser nulo", exception.getMessage());
 			
 		}
 		
@@ -95,50 +101,28 @@ class TestPasajero {
 			
 		}catch(ExceptionVacio exception) {
 			
-			assertEquals("El nombre no puede ser vacio", exception.getMenssage());
+			assertEquals("El nombre no puede ser vacio", exception.getMessage());
 			
 		}
 		
 		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(1001, "201234561", "Soria", "Jose", null);	
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionNulo exception) {
-			
-			assertEquals("El telefono no puede ser nulo", exception.getMenssage());
-			
-		}
-		
-		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(1001, "201234561", "Soria", "Jose", "");	
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-			
-			assertEquals("El telefono no puede ser vacio", exception.getMenssage());
-			
-		}
 		
 		
 	}
 
 	@Test
-	void test_CUILPasajero() {
+	void test_CUILPasajero() throws ExceptionNulo, ExceptionVacio, ExceptionCantidadIncorrecta {
 		
 		Pasajero pasajero1 = null;
 		
 		try {		
 		
 			pasajero1 = new Pasajero(1001, "10123456781", "Soria", "Jose", "15123456");
-			fail("Esta lina no deberia correrse");
+		
 			
 		}catch(ExceptionCantidadIncorrecta exception) {
 			
-			assertEquals("La cantidad es dinstinta a 10 y 11", exception.getMenssage());
+			assertEquals("La cantidad es dinstinta a 10 y 11", exception.getMessage());
 			
 		}
 		
@@ -149,7 +133,7 @@ class TestPasajero {
 			
 		}catch(ExceptionCantidadIncorrecta exception) {
 			
-			assertEquals("La cantidad es dinstinta a 10 y 11", exception.getMenssage());
+			assertEquals("La cantidad es dinstinta a 10 y 11", exception.getMessage());
 			
 		}
 		
