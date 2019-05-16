@@ -16,7 +16,7 @@ class TestPasajero {
 		
 		try {
 			
-			Pasajero pasajero1 = new Pasajero(1001, "201234561", "Soria", "Jose", "15123456");
+			Pasajero pasajero1 = new Pasajero(1001, "20123456781", "Soria", "Jose", "15123456");
 			
 			
 		}catch(Exception exception) {

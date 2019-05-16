@@ -24,9 +24,9 @@ public class Aeropuerto {
 		
 		
 		
-	//	return "[" + this.codigo + " - " + this.codigo + "] " + this.nombre.toUpperCase() + " - " + this.miCiudad.getNombre().toUpperCase() + " (CP: " + this.miCiudad.getCodigoPostal() + ")";
+		return "[" + this.idAeropuerto + " - " + this.codigo + "] " + this.nombre.toUpperCase() + " - " + this.miCiudad.getNombre().toUpperCase() + " (CP: " + this.miCiudad.getCodigoPostal() + ")";
 	
-		return "";
+	
 	}
 	
 	

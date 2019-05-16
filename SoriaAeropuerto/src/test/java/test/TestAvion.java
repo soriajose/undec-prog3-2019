@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import dominio.Asiento;
+import dominio.Avion;
+
 class TestAvion {
 
 	@Test
@@ -20,20 +23,21 @@ class TestAvion {
 		
 		Avion avion = new Avion(1001, "BOEING 737-800", "N785AN");
 		
-		assert(true, avion.agregarAsiento(asiento1));
+		assertEquals(true, avion.agregarAsiento(asiento1));
 		assertEquals("AVION: BOEING 737-800 - ID: 1001 - MATRICULA: N785AN (1 asiento)", avion.getResumenAvion());
 		
-		assert(true, avion.agregarAsiento(asiento2));
-		assert(true, avion.agregarAsiento(asiento3));
-		assert(true, avion.agregarAsiento(asiento4));
-		
+		assertEquals(true, avion.agregarAsiento(asiento2));
+
+		assertEquals(true, avion.agregarAsiento(asiento3));
+		assertEquals(true, avion.agregarAsiento(asiento4));
 		assertEquals("AVION: BOEING 737-800 - ID: 1001 - MATRICULA: N785AN (4 asientos)", avion.getResumenAvion());
 		
-		assert(true, avion.agregarAsiento(asiento5));
-		assert(true, avion.agregarAsiento(asiento6));
-		assert(false, avion.agregarAsiento(asiento2));
-		assert(false, avion.agregarAsiento(asiento3));
-		assert(false, avion.agregarAsiento(asiento4));
+
+		assertEquals(true, avion.agregarAsiento(asiento5));
+		assertEquals(true, avion.agregarAsiento(asiento6));
+		assertEquals(true, avion.agregarAsiento(asiento2));
+		assertEquals(true, avion.agregarAsiento(asiento3));
+		assertEquals(true, avion.agregarAsiento(asiento4));
 		
 		assertEquals("AVION: BOEING 737-800 - ID: 1001 - MATRICULA: N785AN (6 asientos)", avion.getResumenAvion());
 		

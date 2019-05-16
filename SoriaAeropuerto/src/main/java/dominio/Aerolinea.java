@@ -17,12 +17,12 @@ public class Aerolinea {
 		
 		if(nombre == null) {
 			
-			throw new ExceptionNulo("El nombre del Aeropuerto no puede ser nulo");
+			throw new ExceptionNulo("El nombre de la Aerolinea no puede ser nulo");
 		}
 		
 		if(nombre == "") {
 			
-			throw new ExceptionVacio("El nombre del Aeropuerto no puede ser vacio");
+			throw new ExceptionVacio("El nombre de la Aerolinea no puede ser vacio");
 		}
 		
 		
@@ -37,7 +37,7 @@ public class Aerolinea {
 		
 		
 		
-		return "ID Aerolina: " + this.iDAerolinea + " - Nombre: " + this.nombre;
+		return "ID Aerolinea: " + this.iDAerolinea + " - Nombre: " + this.nombre;
 		
 	}
 	

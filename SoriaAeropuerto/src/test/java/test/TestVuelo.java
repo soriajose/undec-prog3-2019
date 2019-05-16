@@ -2,24 +2,38 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.List;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import dominio.Aerolinea;
+import dominio.Aeropuerto;
+import dominio.Avion;
+import dominio.Ciudad;
+import dominio.Pasajero;
+import dominio.Piloto;
+import dominio.Vuelo;
+import excepciones.ExceptionNulo;
+import excepciones.ExceptionVacio;
+
 class TestVuelo {
 
+
 	@Test
-	void test_Resumen_Vuelo() {
+	void test_Resumen_Vuelo() throws ExceptionNulo, ExceptionVacio {
 		
 		//Primer vuelo
+		ArrayList<Piloto> pilotos;
+		ArrayList<Pasajero> pasajeros;
 		Aeropuerto aeropuerto1 = new Aeropuerto(2501, "Aeropuerto Internacional Jorge Newbery", new Ciudad(101, "Buenos Aires", "1706"), "SABE");
 		Aeropuerto aeropuerto2 = new Aeropuerto(2502, "Aeropuerto Internacional Ingeniero Ambrosio Taravella", new Ciudad(102, "Cordoba", "1707"), "SACO");
 		Aerolinea aerolinea1 = new Aerolinea(1234, "Fly Emirates");
 		Avion avion1 = new Avion(1001, "BOEING 737-800", "N785AN");
-		
-		Vuelo vuelo1 = new Vuelo("VBC47", aeropuerto1, LocalTime.of(12, 00), aeropuerto2, LocalTime.of(15, 30), aerolinea1, pilotos = new ArrayList<Piloto>(), avion1, pasajeros = new ArrayList<Pasajero>());
+
+		Vuelo vuelo1 = new Vuelo("VBC47", aeropuerto1, LocalTime.of(12, 00), aeropuerto2, LocalTime.of(15, 30), aerolinea1, avion1);
 		assertEquals("Codigo de vuelo: VBC47 - Salida: Aeropuerto Internacional Jorge Newbery - Hora de Salida: 12:00 - Hora de Arribo: 15:30 - Aerolinea: Fly Emirates - Pilotos: 2 - Pasajeros: 10", vuelo1.getResumenVuelo());
 		
 		
@@ -29,7 +43,7 @@ class TestVuelo {
 		Aerolinea aerolinea2 = new Aerolinea(1235, "Qatar Airways");
 		Avion avion2 = new Avion(1002, "AIRBUS A350-1000", "N786AC");
 		
-		Vuelo vuelo1 = new Vuelo("VCC48", aeropuerto2, LocalTime.of(15, 30), aeropuerto3, LocalTime.of(17, 30), aerolinea2, pilotos = new ArrayList<Piloto>(), avion2, pasajeros = new ArrayList<Pasajero>());
+		Vuelo vuelo2 = new Vuelo("VCC48", aeropuerto2, LocalTime.of(15, 30), aeropuerto3, LocalTime.of(17, 30), aerolinea2, avion2);
 		assertEquals("Codigo de vuelo: VCC48 - Salida: Aeropuerto Internacionl Ingeniero Ambrosio Taravella - Hora de Salida: 12:00 - Hora de Arribo: 15:30 - Aerolinea: Qatar Airways - Pilotos: 2 - Pasajeros: 12", vuelo1.getResumenVuelo());
 		
 		

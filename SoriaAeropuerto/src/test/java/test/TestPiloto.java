@@ -110,7 +110,7 @@ class TestPiloto {
 		try {
 			
 			Piloto piloto1 = new Piloto(1231, "Soria", "Jose", "40300672", LocalDate.of(1996, 8, 16));
-			assertEquals("ID: 1231 - Apellido: Soria - Nombre: Jose - DNI: 40300672 - Fecha Nacimiento: 16/8/1996", piloto1.getResumenPiloto());
+			assertEquals("ID: 1231 - Apellido: Soria - Nombre: Jose - DNI: 40300672 - Fecha Nacimiento: 16-8-1996", piloto1.getResumenPiloto());
 			
 		}catch(Exception exception) {
 			

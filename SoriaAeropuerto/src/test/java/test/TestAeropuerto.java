@@ -20,7 +20,7 @@ class TestAeropuerto {
 		
 		
 		Aeropuerto aeropuerto2 = new Aeropuerto(2502, "Aeropuerto Internacional Ingeniero Ambrosio Taravella", new Ciudad(102, "Cordoba", "1707"), "SACO");
-		assertEquals("[2502 - SACO] AEROPUERTO INTERNACIONAL INGENIERO AMBROSIO TARAVELLA - CORDOBA (CP: 1706)", aeropuerto2.getResumenAeropuerto());
+		assertEquals("[2502 - SACO] AEROPUERTO INTERNACIONAL INGENIERO AMBROSIO TARAVELLA - CORDOBA (CP: 1707)", aeropuerto2.getResumenAeropuerto());
 		
 		
 		Aeropuerto aeropuerto3 = new Aeropuerto(2503, "Aeropuerto Brigadier Mayor Juan Facundo Quiroga", new Ciudad(103, "Chilecito", "5360"), "SANO");

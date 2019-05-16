@@ -25,7 +25,7 @@ public class Ciudad {
 		
 		if(codigoPostal == null) {
 			
-			throw new ExceptionNulo("El codigo postal de la ciudad no puede ser nulo");
+			throw new ExceptionNulo("El codigo postal no puede ser nulo");
 			
 		}
 		
@@ -38,7 +38,7 @@ public class Ciudad {
 		
 		if(codigoPostal.equals("")) {
 			
-			throw new ExceptionVacio("El codigo postal de la ciudad no puede ser vacio");
+			throw new ExceptionVacio("El codigo postal no puede ser vacio");
 			
 		}
 		
@@ -48,6 +48,34 @@ public class Ciudad {
 		
 		
 	}
+
+	public Integer getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(Integer ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
+	
+	
+	
+	
 	
 	
 	

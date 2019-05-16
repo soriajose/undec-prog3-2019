@@ -63,6 +63,13 @@ public class Piloto {
 			throw new ExceptionVacio("El documento del Piloto no puede ser nulo");
 			
 		}
+		
+		this.idPiloto = idPiloto;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.documento = documento;
+		this.fechaNacimiento = fechaNacimiento;
+		
 	}
 	
 	
@@ -70,7 +77,8 @@ public class Piloto {
 		
 		
 		
-		return "ID: " + this.idPiloto + " - Nombre: " + this.nombre + " - Apellido: " + this.apellido + " - DNI: " + this.documento + " - Fecha de Nacimiento: " + this.fechaNacimiento;
+		return "ID: " + this.idPiloto + " - Nombre: " + this.nombre + " - Apellido: " + this.apellido + " - DNI: " + this.documento + " - Fecha de Nacimiento: " + 
+		this.fechaNacimiento;
 	}
 	
 	
