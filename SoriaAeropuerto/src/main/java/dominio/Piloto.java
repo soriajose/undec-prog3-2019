@@ -13,7 +13,7 @@ public class Piloto {
 	private LocalDate fechaNacimiento;
 	
 	
-	public Piloto(Integer idPiloto, String nombre, String apellido, String documento, LocalDate fechaNacimiento) {
+	public Piloto(Integer idPiloto, String apellido, String nombre, String documento, LocalDate fechaNacimiento) {
 			
 		this.idPiloto = idPiloto;
 		this.nombre = nombre;
@@ -35,7 +35,9 @@ public class Piloto {
 	
 	public String getResumenPiloto() {
 	
-		return "ID: " + this.idPiloto + " - Nombre: " + this.nombre + " - Apellido: " + this.apellido + " - DNI: " + this.documento + " - Fecha de Nacimiento: " + 		this.fechaNacimiento;
+		//return "ID: " + this.idPiloto + " - Nombre: " + this.nombre + " - Apellido: " + this.apellido + " - DNI: " + this.documento + " - Fecha de Nacimiento: " +  this.fechaNacimiento;
+	
+		return "ID: " + this.idPiloto + " - Apellido: " + this.apellido + " - Nombre: " + this.nombre + " - DNI: " + this.documento + " - Fecha de Nacimiento: " + this.fechaNacimiento;
 	}
 
 

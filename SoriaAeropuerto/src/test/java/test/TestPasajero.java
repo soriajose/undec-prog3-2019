@@ -2,166 +2,56 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;import org.junit.rules.ExpectedException;
 
 import dominio.Pasajero;
 import excepciones.ExceptionCantidadIncorrecta;
 import excepciones.ExceptionNulo;
-import excepciones.ExceptionVacio;
+
 
 class TestPasajero {
 
 	@Test
-	void test_ParametrosPasajero() throws ExceptionNulo, ExceptionVacio, ExceptionCantidadIncorrecta {
+	void factoryPasajero_atributosCorrectos_instanciaCorrecta() throws ExceptionNulo, ExceptionCantidadIncorrecta {
 		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(1001, "20123456781", "Soria", "Jose", "15123456");
-			
-			
-		}catch(Exception exception) {
-			
-			fail("Esta linea no deberia correrse");
-		}
+		Pasajero pasajero1 = Pasajero.factoryPasajero(1001, "20123456781", "Soria", "Jose", "15123456");
+		assertNotNull(pasajero1);
 		
+		Pasajero pasajero2 = Pasajero.factoryPasajero(1002, "30123456781", "Ruitti", "Javier", "15123457");
+		assertNotNull(pasajero2);
 		
-		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(null, "201234561", "Soria", "Jose", "15123456");
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionNulo exception) {
-			
-			assertEquals("El ID no puede ser nulo", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(1001, null, "Soria", "Jose", "15123456");
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionNulo exception) {
-			
-			assertEquals("El CUIL no puede ser nulo", exception.getMessage());
-			
-		}
-		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(1001, "", "Soria", "Jose", "15123456");
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-			
-			assertEquals("El CUIL no puede ser vacio", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(1001, "201234561", null, "Jose", "15123456");	
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionNulo exception) {
-			
-			assertEquals("El apellido no puede ser nulo", exception.getMessage());
-			
-		}
-		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(1001, "201234561", "", "Jose", "15123456");	
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-			
-			assertEquals("El apellido no puede ser vacio", exception.getMessage());
-			
-		}
-		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(1001, "201234561", "Soria", null, "15123456");	
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionNulo exception) {
-			
-			assertEquals("El nombre no puede ser nulo", exception.getMessage());
-			
-		}
-		
-		try {
-			
-			Pasajero pasajero1 = new Pasajero(1001, "201234561", "Soria", "", "15123456");	
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-			
-			assertEquals("El nombre no puede ser vacio", exception.getMessage());
-			
-		}
-		
-		
-		
+		Pasajero pasajero3 = Pasajero.factoryPasajero(1003, "40123456781", "Fajardo", "Hugo", "15123458");
+		assertNotNull(pasajero3);
 		
 	}
+	
+	@Test
+	void cuilPasajero_getCUILFormato_formatoCorrecto() throws ExceptionNulo, ExceptionCantidadIncorrecta {
+		
+		Pasajero pasajero1 = Pasajero.factoryPasajero(1001, "20123456781", "Soria", "Jose", "15123456");
+		assertEquals("El numero de CUIL es: 20-12345678-1", pasajero1.getCUILFormato());
+	
+		Pasajero pasajero2 = Pasajero.factoryPasajero(1002, "30123456781", "Ruitti", "Javier", "15123457");
+		assertEquals("El numero de CUIL es: 30-12345678-1", pasajero2.getCUILFormato());
+		
+		
+		Pasajero pasajero3 = Pasajero.factoryPasajero(1003, "40123456781", "Fajardo", "Hugo", "15123458");
+		assertEquals("El numero de CUIL es: 40-12345678-1", pasajero3.getCUILFormato());
+		
+	}
+	
 
 	@Test
-	void test_CUILPasajero() throws ExceptionNulo, ExceptionVacio, ExceptionCantidadIncorrecta {
+	void cuilPasajero_getCUILFormato_cantidadIncorrecta() throws ExceptionNulo, ExceptionCantidadIncorrecta {
 		
-		Pasajero pasajero1 = null;
-		
-		try {		
-		
-			pasajero1 = new Pasajero(1001, "10123456781", "Soria", "Jose", "15123456");
-		
-			
-		}catch(ExceptionCantidadIncorrecta exception) {
-			
-			assertEquals("La cantidad es dinstinta a 10 y 11", exception.getMessage());
-			
-		}
-		
-		try {		
-			
-			pasajero1 = new Pasajero(1001, "1012345678134", "Soria", "Jose", "15123456");
-			fail("Esta lina no deberia correrse");
-			
-		}catch(ExceptionCantidadIncorrecta exception) {
-			
-			assertEquals("La cantidad es dinstinta a 10 y 11", exception.getMessage());
-			
-		}
+		Assertions.assertThrows(ExceptionCantidadIncorrecta.class, ()-> Pasajero.factoryPasajero(1001, "101234567812", "Soria", "Jose", "15123456"));
+		Assertions.assertThrows(ExceptionCantidadIncorrecta.class, ()-> Pasajero.factoryPasajero(1002, "300123456781", "Ruitti", "Javier", "15123457"));
+		Assertions.assertThrows(ExceptionCantidadIncorrecta.class, ()-> Pasajero.factoryPasajero(1001, "4000123456781", "Fajardo", "Hugo", "15123458"));
 		
 		
-		//Test para el formato del CUIL. 
-		try {
-		
-			pasajero1 = new Pasajero(1001, "10123456781", "Soria", "Jose", "15123456");
-			assertEquals("El numero de CUIL es: 10-12345678-1", pasajero1.getCUILFormato());
-			
-		}catch(ExceptionCantidadIncorrecta exception) {
-			
-			fail("Esta linea no deberia correrse");
-			
-		}
-		
-		try {
-			
-			pasajero1 = new Pasajero(1002, "30876543212", "Fajardo", "Hugo", "15654321");
-			assertEquals("El numero de CUIL es: 30-8765421-2", pasajero1.getCUILFormato());
-			
-		}catch(ExceptionCantidadIncorrecta exception) {
-			
-			fail("Esta linea no deberia correrse");
-			
-		}
 		
 	}
-		
+	
 
 }
