@@ -1,5 +1,7 @@
 package dominio;
 
+import excepciones.ExceptionNulo;
+
 public class Asiento {
 
 	private Integer iDAsiento;
@@ -9,36 +11,27 @@ public class Asiento {
 		
 		this.iDAsiento = iDAsiento;
 		this.numeroAsiento = numeroAsiento;
+			
+	}
+	
+
+	public static Asiento asientoFactory(Integer idAsiento, String numeroAsiento) throws ExceptionNulo {
+	
+		if(idAsiento == null || numeroAsiento == null) {
+			
+			throw new ExceptionNulo("Atributo del Asiento nulo");
+		}
 		
-		
+		return new Asiento(idAsiento, numeroAsiento);
 	}
 	
 	
+	
 	public String getResumenAsiento() {
-		
 
 		return "ID de asiento: " + this.iDAsiento + " - Numero Asiento: " + this.numeroAsiento;
 	}
 
-
-	public Integer getiDAsiento() {
-		return iDAsiento;
-	}
-
-
-	public void setiDAsiento(Integer iDAsiento) {
-		this.iDAsiento = iDAsiento;
-	}
-
-
-	public String getNumeroAsiento() {
-		return numeroAsiento;
-	}
-
-
-	public void setNumeroAsiento(String numeroAsiento) {
-		this.numeroAsiento = numeroAsiento;
-	}
 
 
 	@Override
@@ -66,6 +59,7 @@ public class Asiento {
 			return false;
 		return true;
 	}
-	
+
+
 	
 }
