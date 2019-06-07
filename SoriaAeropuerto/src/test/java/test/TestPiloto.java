@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import dominio.Piloto;
@@ -14,135 +15,44 @@ import excepciones.ExceptionVacio;
 class TestPiloto {
 
 	@Test
-	void test_Atributos_Piloto() throws ExceptionVacio, ExceptionNulo {
+	void factoryPiloto_atributosPiloto_instanciaPiloto() throws ExceptionNulo {
 		
-		Piloto piloto = null;
-		
-		try {
-			
-			piloto = new Piloto(null, "Soria", "Jose", "40300672", LocalDate.of(1996, 8, 16));
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionNulo exception) {
-		
-			assertEquals("El ID del piloto no puede ser nulo", exception.getMessage());
-			
-		}
-		
-		try {
-			
-			piloto = new Piloto(1231, null, "Jose", "40300672", LocalDate.of(2019, 3, 2));
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionNulo exception) {
-		
-			assertEquals("El apellido del piloto no puede ser nulo", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			piloto = new Piloto(1231, "", "Jose", "40300672", LocalDate.of(2019, 3, 2));
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-		
-			assertEquals("El apellido del piloto no puede ser vacio", exception.getMessage());
-			
-		}
-		
-		try {
-			
-			piloto = new Piloto(1231, "Soria", "", "40300672", LocalDate.of(1996, 8, 16));
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-		
-			assertEquals("El nombre del piloto no puede ser vacio", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			piloto = new Piloto(1231, "Soria", null, "40300672", LocalDate.of(1996, 8, 16));
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionNulo exception) {
-		
-			assertEquals("El apellido del piloto no puede ser nulo", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			piloto = new Piloto(1231, "Soria", "Jose", "", LocalDate.of(1996, 8, 16));
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionVacio exception) {
-		
-			assertEquals("El documento del piloto no puede ser vacio", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			piloto = new Piloto(1231, "Soria", "Jose", null , LocalDate.of(1996, 8, 16));
-			fail("Esta linea no deberia correrse");
-			
-		}catch(ExceptionNulo exception) {
-		
-			assertEquals("El documento del piloto no puede ser nulo", exception.getMessage());
-			
-		}
-		
+		Piloto miPiloto = Piloto.factoryPiloto(1231, "Soria", "Jose", "40300672", LocalDate.of(1996, 8, 16));
+		assertNotNull(miPiloto);
+	
+		Piloto miPiloto2 = Piloto.factoryPiloto(1231, "Fajardo", "Hugo", "30123543", LocalDate.of(1980, 4, 12));
+		assertNotNull(miPiloto2);
+	
+		Piloto miPiloto3 = Piloto.factoryPiloto(1231, "Ruitti", "Javier", "35543123", LocalDate.of(1985, 6, 28));
+		assertNotNull(miPiloto3);
 		
 	}
-	
 	
 	@Test
-	void test_Piloto_Correcto() {
+	void factoryPiloto_atributosPiloto_instanciaIncorrecta() throws ExceptionNulo {
 		
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Piloto.factoryPiloto(null, "Soria", "Jose", "40300672", LocalDate.of(1996, 8, 16)));
 		
-		try {
-			
-			Piloto piloto1 = new Piloto(1231, "Soria", "Jose", "40300672", LocalDate.of(1996, 8, 16));
-			assertEquals("ID: 1231 - Apellido: Soria - Nombre: Jose - DNI: 40300672 - Fecha Nacimiento: 16-8-1996", piloto1.getResumenPiloto());
-			
-		}catch(Exception exception) {
-			
-			fail("Esta linea no deberia correrse");	
-		}
-		
-		
-		try {
-			
-			Piloto piloto2 = new Piloto(1232, "Fajardo", "Hugo", "12345678", LocalDate.of(1980, 10, 5));
-			assertEquals("ID: 1232 - Apellido: Fajardo - Nombre: Hugo - DNI: 12345678 - Fecha Nacimiento: 5/10/1980", piloto2.getResumenPiloto());
-			
-		}catch(Exception exception) {
-			
-			fail("Esta linea no deberia correrse");	
-		}
-		
-		
-		try {
-			
-			Piloto piloto3 = new Piloto(1233, "Ruitti", "Javier", "87654321", LocalDate.of(1985, 3, 9));
-			assertEquals("ID: 1233 - Apellido: Ruitti - Nombre: Javier - DNI: 87654321 - Fecha Nacimiento: 9/3/1985", piloto3.getResumenPiloto());
-			
-		}catch(Exception exception) {
-			
-			fail("Esta linea no deberia correrse");	
-		}
-		
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Piloto.factoryPiloto(4321, "Fajardo", null, null, LocalDate.of(1980, 4, 12)));
+	
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Piloto.factoryPiloto(4322, null, "Javier", "35543123", LocalDate.of(1985, 6, 28)));
+	
 		
 	}
 	
-	
-	
-	
+	@Test
+	void getResumenPiloto_atributosPiloto_atributosCorrectos() throws ExceptionNulo{
+		
+		Piloto miPiloto = Piloto.factoryPiloto(1231, "Soria", "Jose", "40300672", LocalDate.of(1996, 8, 16));
+		assertEquals("ID: 1231 - Apellido: Soria - Nombre: Jose - DNI: 40300672", miPiloto.getResumenPiloto());
+		
+		Piloto miPiloto2 = Piloto.factoryPiloto(1232, "Fajardo", "Hugo", "30123543", LocalDate.of(1980, 4, 12));
+		assertEquals("ID: 1232 - Apellido: Fajardo - Nombre: Hugo - DNI: 30123543", miPiloto2.getResumenPiloto());
+		
+		Piloto miPiloto3 = Piloto.factoryPiloto(1233, "Ruitti", "Javier", "35543123", LocalDate.of(1985, 6, 28));
+		assertEquals("ID: 1233 - Apellido: Ruitti - Nombre: Javier - DNI: 35543123", miPiloto3.getResumenPiloto());
+		
+		
+	}
 }
+
