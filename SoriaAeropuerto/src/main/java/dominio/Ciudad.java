@@ -5,74 +5,27 @@ import excepciones.ExceptionVacio;
 
 public class Ciudad {
 	
-	private Integer ciudad; 
+	private Integer idCiudad; 
 	private String nombre;
 	private String codigoPostal;
 	
-	public Ciudad(Integer ciudad, String nombre, String codigoPostal) throws ExceptionNulo, ExceptionVacio{
+	public Ciudad(Integer idCiudad, String nombre, String codigoPostal) throws ExceptionNulo {
 		
-		if(ciudad == null) {
-			
-			throw new ExceptionNulo("El ID de la ciudad no puede ser nulo");
-			
-		}
-		
-		if(nombre == null) {
-			
-			throw new ExceptionNulo("El nombre de la ciudad no puede ser nulo");
-			
-		}
-		
-		if(codigoPostal == null) {
-			
-			throw new ExceptionNulo("El codigo postal no puede ser nulo");
-			
-		}
-		
-		
-		if(nombre.equals("")) {
-			
-			throw new ExceptionVacio("El nombre de la ciudad no puede ser vacio");
-			
-		}
-		
-		if(codigoPostal.equals("")) {
-			
-			throw new ExceptionVacio("El codigo postal no puede ser vacio");
-			
-		}
-		
-		this.ciudad = ciudad;
+		this.idCiudad = idCiudad;
 		this.nombre = nombre;
 		this.codigoPostal = codigoPostal;
 		
+	}
+
+	public static Ciudad factoryCiudad(Integer idCiudad, String nombre, String codigoPostal) throws ExceptionNulo {
+			
+		if(idCiudad == null || nombre == null || codigoPostal == null) {
+			
+			throw new ExceptionNulo("Atributo de Ciudad nulo");
+		}
 		
+		return new Ciudad(101, "Chilecito", "5360");
 	}
-
-	public Integer getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(Integer ciudad) {
-		this.ciudad = ciudad;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getCodigoPostal() {
-		return codigoPostal;
-	}
-
-	public void setCodigoPostal(String codigoPostal) {
-		this.codigoPostal = codigoPostal;
-	}
-	
 	
 	
 	

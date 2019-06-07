@@ -2,94 +2,40 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import dominio.Ciudad;
+import dominio.Piloto;
 import excepciones.ExceptionNulo;
-import excepciones.ExceptionVacio;
 
 class TestCiudad {
 
 	@Test
-	void test_Atributos_Ciudad() throws ExceptionVacio, ExceptionNulo {
+	void factoryCiudad_atributosCorrectos_instanciaCorrecta() throws ExceptionNulo {
 		
-		Ciudad ciudad1 = null;
+		Ciudad miCiudad = Ciudad.factoryCiudad(101, "Chilecito", "5360");
+		assertNotNull(miCiudad);
 		
-		try {
-			
-			//(IdCIudad, nombre, codigoPostal)
-			ciudad1 = new Ciudad(101, "Chilecito", "5360");
-			
-		}catch(Exception exception) {
-			
-			fail("Esta linea no deberia correrse");
+		Ciudad miCiudad2 = Ciudad.factoryCiudad(102, "Cordoba", "5010");
+		assertNotNull(miCiudad2);
 	
-		}
-
-		
-		try {
-			
-			//(IdCIudad, nombre, codigoPostal)
-			ciudad1 = new Ciudad(null, "Chilecito", "5360");
-			
-		}catch(ExceptionNulo exception) {
-			
-			assertEquals("El ID de la ciudad no puede ser nulo", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			//(IdCIudad, nombre, codigoPostal)
-			ciudad1 = new Ciudad(101, null, "5360");
-			
-		}catch(ExceptionNulo exception) {
-			
-			assertEquals("El nombre de la ciudad no puede ser nulo", exception.getMessage());
-		
-		}
-		
-		
-		try {
-			
-			//(IdCIudad, nombre, codigoPostal)
-			ciudad1 = new Ciudad(101, "", "5360");
-			
-		}catch(ExceptionVacio exception) {
-			
-			assertEquals("El nombre de la ciudad no puede ser vacio", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			//(IdCIudad, nombre, codigoPostal)
-			ciudad1 = new Ciudad(101, "Chilecito", null);
-			
-		}catch(ExceptionNulo exception) {
-			
-			assertEquals("El codigo postal no puede ser nulo", exception.getMessage());
-			
-		}
-		
-		
-		try {
-			
-			//(IdCIudad, nombre, codigoPostal)
-			ciudad1 = new Ciudad(101, "Chilecito", "");
-			
-		}catch(ExceptionVacio exception) {
-			
-			assertEquals("El codigo postal no puede ser vacio", exception.getMessage());
-			
-		}
-		
+		Ciudad miCiudad3 = Ciudad.factoryCiudad(103, "Buenos Aires", "1010");
+		assertNotNull(miCiudad3);
+	
 	
 	}
 	
+	@Test
+	void factoryCiudad_atributosIncorrectos_instanciaIncorrecta() throws ExceptionNulo {
+		
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Ciudad.factoryCiudad(null, "Chilecito", "5360"));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Ciudad.factoryCiudad(102, null, "5010"));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Ciudad.factoryCiudad(103, "Buenos Aires", null));
 	
+	
+	}
+
 	
 	
 }
