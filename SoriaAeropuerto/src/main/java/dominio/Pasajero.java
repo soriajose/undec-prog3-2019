@@ -1,60 +1,43 @@
 package dominio;
 
-import excepciones.ExceptionCantidadIncorrecta;
+import excepciones.ExceptionCantidadDigitos;
 import excepciones.ExceptionNulo;
-import excepciones.ExceptionVacio;
 
 public class Pasajero {
 
 	private Integer idPasajero;
-	private String CUIL;
 	private String apellido;
 	private String nombre;
-	private String telefono;
+	private String CUIL;
 	
-	public Pasajero(Integer idPasajero, String CUIL, String apellido, String nombre, String telefono) throws ExceptionNulo, ExceptionCantidadIncorrecta {
+	public Pasajero(Integer idPasajero, String CUIL, String apellido, String nombre, String telefono) {
 		
 		this.idPasajero = idPasajero;
-		this.CUIL = CUIL;
 		this.apellido = apellido;
 		this.nombre = nombre;
-		this.telefono = telefono;
+		this.CUIL = CUIL;
+		
 		
 	}
-
-	public static Pasajero factoryPasajero(Integer idPasajero, String CUIL, String apellido, String nombre, String telefono) throws ExceptionNulo, ExceptionCantidadIncorrecta {
+	
+	
+	public static Pasajero factoryPasajero(Integer idPasajero, String CUIL ,String apellido, String nombre, String telefono) throws ExceptionNulo, ExceptionCantidadDigitos{
 		
-		if(idPasajero == null || CUIL == null || apellido == null || nombre == null || telefono == null) {
+		if(idPasajero == null || CUIL == null || CUIL == "" || apellido == null || apellido == "" ||
+				nombre == null || nombre == "" || telefono == null || telefono == "") {
 			
-			throw new ExceptionNulo("Atributo del pasajero nulo");
+			throw new ExceptionNulo("Error en atributo de la clase Pasajero");
 		}
 		
-		if(CUIL.length() < 10 || CUIL.length() > 11) {
+		if(CUIL.length() != 10) {
 			
-			throw new ExceptionCantidadIncorrecta("La cantidad es dinstinta a 10 y 11");
+			throw new ExceptionCantidadDigitos("El numero de digitos del CUIL es incorrecto");
 			
 		}
+		
 		
 		return new Pasajero(idPasajero, CUIL, apellido, nombre, telefono);
-	}	
-	
-	public String getCUILFormato() throws ExceptionNulo {
-		
-		
-		
-		if(this.CUIL.length() == 10) {
-			
-			
-			return "El numero de CUIL es: " + this.CUIL.substring(0, 2) + "-" + this.CUIL.substring(2, 3) + this.CUIL.substring(3, 6) + this.CUIL.substring(6, 9) + "-" + this.CUIL.substring(9, 10);
-		}
-		
-		
-		return "El numero de CUIL es: " + this.CUIL.substring(0, 2) + "-" + this.CUIL.substring(2, 4) + this.CUIL.substring(4, 7) + this.CUIL.substring(7, 10) + "-" + this.CUIL.substring(10, 11);
-	
 	}
-
-
-
 	
 	
 	

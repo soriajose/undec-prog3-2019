@@ -1,61 +1,79 @@
 package dominio;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.awt.List;
 import java.util.ArrayList;
+
+import excepciones.ExceptionNulo;
+
 
 public class Avion {
 
 	private Integer idAvion;
-	private String modelo;
-	private String matricula;
-	private ArrayList<Asiento> listaAsientos;
+	private String	modelo;
+	private String	matricula;
+	private ArrayList<Asiento> misAsientos = new ArrayList<Asiento>();
+	
 	
 	public Avion(Integer idAvion, String modelo, String matricula) {
 		
 		this.idAvion = idAvion;
 		this.modelo = modelo;
 		this.matricula = matricula;
-		this.listaAsientos = new ArrayList<Asiento>();
+		
 		
 	}
-
 	
 	
-	public boolean agregarAsiento(Asiento asiento) {
+	public static Avion factoryAvion(Integer idAvion, String modelo, String matricula) throws ExceptionNulo{
 		
-		if(!asientoRepetido(asiento)) {
+		if(idAvion == null || modelo == null || modelo == "" || matricula == null || matricula == "") {
 			
-			this.listaAsientos.add(asiento);
-			return true;
-		}
-	
-		return false;
-	}
-
-
-
-	private boolean asientoRepetido(Asiento asiento) {
-		
-		if(this.listaAsientos.contains(asiento.getiDAsiento())) {
+			throw new ExceptionNulo("Erro en atributo de la clase Avion");
 			
-			return true;
 		}
 		
 		
-		return false;
+		return new Avion(idAvion, modelo, matricula);
 	}
 
 
-
-	public String getResumenAvion() {
-	
-		return "AVION: " + this.modelo.toUpperCase() + " - ID: " + this.idAvion + " - MATRICULA: " + this.matricula.toUpperCase();
+	public ArrayList<Asiento> getMisAsientos() {
+		return misAsientos;
 	}
-	
-//	assertEquals("AVION: BOEING 737-800 - ID: 1001 - MATRICULA: N785AN (1 asiento)", avion.getResumenAvion());
-	
+
+
+	public void setMisAsientos(ArrayList<Asiento> misAsientos) {
+		this.misAsientos = misAsientos;
+	}
+
+
+	public Integer getIdAvion() {
+		return idAvion;
+	}
+
+
+	public void setIdAvion(Integer idAvion) {
+		this.idAvion = idAvion;
+	}
+
+
+	public String getModelo() {
+		return modelo;
+	}
+
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
 	
 	
 	

@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 
 import dominio.Aerolinea;
 import excepciones.ExceptionNulo;
-import excepciones.ExceptionVacio;
 
-class TestAerolineas {
-	
+
+class TestAerolinea {
+
 	@Test
 	void factoryAerolinea_todoLosAtributos_instanciaIncorrecta() {
 		
@@ -29,6 +29,7 @@ class TestAerolineas {
 		Aerolinea aerolinea = Aerolinea.factoryAerolinea(2001, "Qatar Airways");
 		
 	}
+	
 	
 	
 	

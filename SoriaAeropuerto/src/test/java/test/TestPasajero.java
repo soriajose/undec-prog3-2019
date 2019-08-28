@@ -3,55 +3,47 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 import dominio.Pasajero;
-import excepciones.ExceptionCantidadIncorrecta;
+import excepciones.ExceptionCantidadDigitos;
 import excepciones.ExceptionNulo;
 
 
 class TestPasajero {
 
 	@Test
-	void factoryPasajero_atributosCorrectos_instanciaCorrecta() throws ExceptionNulo, ExceptionCantidadIncorrecta {
+	void factoryPasajero_todosLosAtributos_instanciaIncorrecta() throws ExceptionNulo{
 		
-		Pasajero pasajero1 = Pasajero.factoryPasajero(1001, "20123456781", "Soria", "Jose", "15123456");
-		assertNotNull(pasajero1);
-		
-		Pasajero pasajero2 = Pasajero.factoryPasajero(1002, "30123456781", "Ruitti", "Javier", "15123457");
-		assertNotNull(pasajero2);
-		
-		Pasajero pasajero3 = Pasajero.factoryPasajero(1003, "40123456781", "Fajardo", "Hugo", "15123458");
-		assertNotNull(pasajero3);
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Pasajero.factoryPasajero(null, "20393006723", "Soria", "Jose", "3825520391"));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Pasajero.factoryPasajero(3001, null, "Soria", "Jose", "3825520391"));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Pasajero.factoryPasajero(3001, "20393006723", null, "Jose", "3825520391"));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Pasajero.factoryPasajero(3001, "20393006723", "Soria", null, "3825520391"));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Pasajero.factoryPasajero(null, null, null, null, null));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Pasajero.factoryPasajero(3001, "", "Soria", "Jose", "3825520391"));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Pasajero.factoryPasajero(3001, "20393006723", "", "Jose", "3825520391"));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Pasajero.factoryPasajero(3001, "20393006723", "Soria", "", "3825520391"));
+		Assertions.assertThrows(ExceptionNulo.class, ()-> Pasajero.factoryPasajero(3001, "20393006723", "Soria", "Jose", ""));
 		
 	}
+
 	
 	@Test
-	void cuilPasajero_getCUILFormato_formatoCorrecto() throws ExceptionNulo, ExceptionCantidadIncorrecta {
+	void factoryPasajero_atributoCUILIncorrecto_instanciaIncorrecta() throws ExceptionCantidadDigitos{
 		
-		Pasajero pasajero1 = Pasajero.factoryPasajero(1001, "20123456781", "Soria", "Jose", "15123456");
-		assertEquals("El numero de CUIL es: 20-12345678-1", pasajero1.getCUILFormato());
-	
-		Pasajero pasajero2 = Pasajero.factoryPasajero(1002, "30123456781", "Ruitti", "Javier", "15123457");
-		assertEquals("El numero de CUIL es: 30-12345678-1", pasajero2.getCUILFormato());
-		
-		
-		Pasajero pasajero3 = Pasajero.factoryPasajero(1003, "40123456781", "Fajardo", "Hugo", "15123458");
-		assertEquals("El numero de CUIL es: 40-12345678-1", pasajero3.getCUILFormato());
+		Assertions.assertThrows(ExceptionCantidadDigitos.class, ()-> Pasajero.factoryPasajero(3001, "2039300672300", "Soria", "Jose", "3825520391"));
 		
 	}
 	
-
+	
 	@Test
-	void cuilPasajero_getCUILFormato_cantidadIncorrecta() throws ExceptionNulo, ExceptionCantidadIncorrecta {
+	void factoryPasajero_todosLosAtributos_instanciaCorrecta() throws ExceptionNulo, ExceptionCantidadDigitos{
 		
-		Assertions.assertThrows(ExceptionCantidadIncorrecta.class, ()-> Pasajero.factoryPasajero(1001, "101234567812", "Soria", "Jose", "15123456"));
-		Assertions.assertThrows(ExceptionCantidadIncorrecta.class, ()-> Pasajero.factoryPasajero(1002, "300123456781", "Ruitti", "Javier", "15123457"));
-		Assertions.assertThrows(ExceptionCantidadIncorrecta.class, ()-> Pasajero.factoryPasajero(1001, "4000123456781", "Fajardo", "Hugo", "15123458"));
-		
-		
+		Pasajero pasajero = Pasajero.factoryPasajero(3001, "2039300672", "Soria", "Jose", "3825520391");
+		assertNotNull(pasajero);
 		
 	}
 	
-
+	
+	
 }

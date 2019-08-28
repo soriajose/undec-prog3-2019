@@ -1,10 +1,9 @@
 package dominio;
 
-
 import excepciones.ExceptionNulo;
-import excepciones.ExceptionVacio;
 
 public class Aerolinea {
+	
 	
 	private Integer idAerolinea;
 	private String nombre;
@@ -29,7 +28,6 @@ public class Aerolinea {
 		return new Aerolinea(idAerolinea, nombre);
 	}
 	
+	
 
-	
-	
 }

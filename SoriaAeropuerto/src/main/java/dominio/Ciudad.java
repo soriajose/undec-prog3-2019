@@ -1,30 +1,31 @@
 package dominio;
 
 import excepciones.ExceptionNulo;
-import excepciones.ExceptionVacio;
 
 public class Ciudad {
-	
-	private Integer idCiudad; 
+
+	private Integer idCiudad;
 	private String nombre;
-	private String codigoPostal;
+	private String codigoPosta;
 	
-	public Ciudad(Integer idCiudad, String nombre, String codigoPostal) throws ExceptionNulo {
+	
+	public Ciudad(Integer idCiudad, String nombre, String codigoPostal) {
 		
 		this.idCiudad = idCiudad;
 		this.nombre = nombre;
-		this.codigoPostal = codigoPostal;
+		this.codigoPosta = codigoPostal;
 		
 	}
 
 	public static Ciudad factoryCiudad(Integer idCiudad, String nombre, String codigoPostal) throws ExceptionNulo {
+		
+		if(idCiudad == null || nombre == "" || nombre == null || codigoPostal == "" || codigoPostal == null) {
 			
-		if(idCiudad == null || nombre == null || codigoPostal == null) {
+			throw new ExceptionNulo("Error en atributo de la clase Ciudad");
 			
-			throw new ExceptionNulo("Atributo de Ciudad nulo");
 		}
 		
-		return new Ciudad(101, "Chilecito", "5360");
+		return new Ciudad(idCiudad, nombre, codigoPostal);
 	}
 	
 	

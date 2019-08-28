@@ -3,63 +3,54 @@ package dominio;
 import excepciones.ExceptionNulo;
 
 public class Asiento {
-
-	private Integer iDAsiento;
-	private String numeroAsiento;
 	
-	public Asiento(Integer iDAsiento, String numeroAsiento) {
+	private Integer idAsiento;
+	private String	numeroAsiento;
+	
+	
+	
+	public Asiento(Integer idAsiento, String numeroAsiento) {
 		
-		this.iDAsiento = iDAsiento;
+		this.idAsiento = idAsiento;
 		this.numeroAsiento = numeroAsiento;
-			
+		
+		
 	}
 	
-
-	public static Asiento asientoFactory(Integer idAsiento, String numeroAsiento) throws ExceptionNulo {
 	
-		if(idAsiento == null || numeroAsiento == null) {
+	public static Asiento factoryAsiento(Integer idAsiento, String numeroAsiento) throws ExceptionNulo{
+		
+		if(idAsiento == null || numeroAsiento == null || numeroAsiento == "") {
 			
-			throw new ExceptionNulo("Atributo del Asiento nulo");
+			throw new ExceptionNulo("Error en atributo de la clase Asiento");
+			
 		}
 		
 		return new Asiento(idAsiento, numeroAsiento);
 	}
-	
-	
-	
-	public String getResumenAsiento() {
 
-		return "ID de asiento: " + this.iDAsiento + " - Numero Asiento: " + this.numeroAsiento;
+
+	public Integer getIdAsiento() {
+		return idAsiento;
 	}
 
 
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((iDAsiento == null) ? 0 : iDAsiento.hashCode());
-		return result;
+	public void setIdAsiento(Integer idAsiento) {
+		this.idAsiento = idAsiento;
 	}
 
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Asiento other = (Asiento) obj;
-		if (iDAsiento == null) {
-			if (other.iDAsiento != null)
-				return false;
-		} else if (!iDAsiento.equals(other.iDAsiento))
-			return false;
-		return true;
+	public String getNumeroAsiento() {
+		return numeroAsiento;
 	}
 
 
+	public void setNumeroAsiento(String numeroAsiento) {
+		this.numeroAsiento = numeroAsiento;
+	}
+
+	
+	
+	
 	
 }
