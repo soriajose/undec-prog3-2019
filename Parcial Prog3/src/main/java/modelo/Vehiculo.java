@@ -32,6 +32,42 @@ public class Vehiculo {
 		return new Vehiculo(idVehiculo, marcaModelo, matricula, anio);
 	}
 
+	
+
+	public String mostrarVehiculo() {
+		
+		return this.getMarcaModelo() + " modelo " + this.getAnio() + " - Patente " + this.getPatente();
+	}
+	
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((patente == null) ? 0 : patente.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vehiculo other = (Vehiculo) obj;
+		if (patente == null) {
+			if (other.patente != null)
+				return false;
+		} else if (!patente.equals(other.patente))
+			return false;
+		return true;
+	}
+
 
 	public Integer getIdVehiculo() {
 		return idVehiculo;
@@ -73,20 +109,6 @@ public class Vehiculo {
 	}
 
 
-	public String mostrarVehiculo() {
-		
-		
-		
-		return this.getMarcaModelo() + " modelo " + this.getAnio() + " - Patente " + this.getPatente();
-	}
-
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
