@@ -19,7 +19,6 @@ class TestAerolinea {
 		Assertions.assertThrows(ExceptionNulo.class, ()-> Aerolinea.factoryAerolinea(2001, ""));
 		Assertions.assertThrows(ExceptionNulo.class, ()-> Aerolinea.factoryAerolinea(null, null));
 		
-		
 	}
 
 	
