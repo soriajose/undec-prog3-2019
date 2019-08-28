@@ -1,46 +1,35 @@
 package dominio;
 
+
 import excepciones.ExceptionNulo;
 import excepciones.ExceptionVacio;
 
 public class Aerolinea {
 	
-	private Integer iDAerolinea;
+	private Integer idAerolinea;
 	private String nombre;
 	
-	public Aerolinea (Integer iDAerolinea, String nombre) throws ExceptionNulo, ExceptionVacio {
+	public Aerolinea(Integer idAerolinea, String nombre) {
 		
-		if(iDAerolinea == null) {
-			
-			throw new ExceptionNulo("El ID de la Aerolinea no puede ser nulo");
-		}
-		
-		if(nombre == null) {
-			
-			throw new ExceptionNulo("El nombre de la Aerolinea no puede ser nulo");
-		}
-		
-		if(nombre == "") {
-			
-			throw new ExceptionVacio("El nombre de la Aerolinea no puede ser vacio");
-		}
-		
-		
-		this.iDAerolinea = iDAerolinea;
+		this.idAerolinea = idAerolinea;
 		this.nombre = nombre;
 		
-		
 	}
 	
 	
-	public String getResumenAerolinea() {
+	public static Aerolinea factoryAerolinea(Integer idAerolinea, String nombre) throws ExceptionNulo{
+		
+		if(idAerolinea == null || nombre == "" || nombre == null) {
+			
+			throw new ExceptionNulo("Error en atributo de la clase Aerolinea");
+			
+		}
 		
 		
-		
-		return "ID Aerolinea: " + this.iDAerolinea + " - Nombre: " + this.nombre;
-		
+		return new Aerolinea(idAerolinea, nombre);
 	}
 	
+
 	
 	
 }
