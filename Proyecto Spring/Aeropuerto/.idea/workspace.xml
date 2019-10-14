@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="118f3a06-d454-4d47-a838-0b22774e3607" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Boundaries/src/main/java/ar/edu/undec/prog/modeloEntity/TipoPIloto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/Aeropuerto-Core.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/src/main/java/repositorio/IRepositorioBuscarPiloto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Boundaries/src/main/java/ar/edu/undec/prog/modeloEntity/PilotoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Boundaries/src/main/java/ar/edu/undec/prog/modeloEntity/PilotoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Boundaries/src/test/resources/buscarPilotoAntes" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Boundaries/src/test/resources/buscarPilotoAntes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Boundaries/target/classes/ar/edu/undec/prog/modeloEntity/PilotoEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Boundaries/target/classes/ar/edu/undec/prog/modeloEntity/PilotoEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Boundaries/target/test-classes/buscarPilotoAntes" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Boundaries/target/test-classes/buscarPilotoAntes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/src/main/java/interactor/CrearPilotoUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/src/main/java/interactor/CrearPilotoUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/src/main/java/modelo/Piloto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/src/main/java/modelo/Piloto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/src/main/java/repositorio/IRepositorioCrearPiloto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/src/main/java/repositorio/IRepositorioCrearPiloto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/src/test/java/interactorUnitTest/crearPilotoUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Aeropuerto/Aeropuerto-Core/src/test/java/interactorUnitTest/crearPilotoUnitTest.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Aeropuerto" />
+  </component>
+  <component name="ProjectId" id="1Rz3cEczIzQYl18XEvQmtieMVE1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="118f3a06-d454-4d47-a838-0b22774e3607" name="Default Changelist" comment="" />
+      <created>1570656174897</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570656174897</updated>
+      <workItem from="1570656176769" duration="148000" />
+      <workItem from="1570656402992" duration="1285000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
